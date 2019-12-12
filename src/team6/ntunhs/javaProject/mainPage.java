@@ -89,8 +89,14 @@ public class mainPage {
 		lblNewLabel_3.setBounds(259, 113, 82, 23);
 		frame.getContentPane().add(lblNewLabel_3);
 		
+		String[] doc[] = new String[4][];//宣告4個字串陣列(二維陣列)
+		doc[0] = new String[] {"杜豐于", "杜美心", "鞏俐芳"};
+		doc[1] = new String[] {"丁丁（Tinky Winky）","迪西（Dipsy）","拉拉（Laa-Laa）","小波（Po）"};
+		doc[2] = new String[] {"綱手", "春野櫻","靜音","藥師兜","野原凜","香燐"};
+		doc[3] = new String[] {"胡椒", "牛排", "大蛇丸"};
+		
 		JComboBox<String> doctorComboBox = new JComboBox();
-		doctorComboBox.setModel(new DefaultComboBoxModel(new String[] {"杜豐于", "杜美心", "鞏俐芳"}));
+		doctorComboBox.setModel(new DefaultComboBoxModel(doc[0]));
 		doctorComboBox.setFont(new Font("新細明體", Font.PLAIN, 18));
 		doctorComboBox.setBounds(350, 110, 100, 35);
 		frame.getContentPane().add(doctorComboBox);

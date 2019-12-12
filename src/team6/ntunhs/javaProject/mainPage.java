@@ -10,6 +10,8 @@ import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 import java.awt.Font;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class mainPage {
 
@@ -118,5 +120,10 @@ public class mainPage {
 		leaveButton.setFont(new Font("新細明體", Font.PLAIN, 18));
 		leaveButton.setBounds(253, 240, 85, 35);
 		frame.getContentPane().add(leaveButton);
+		leaveButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}
+		});
 	}
 }

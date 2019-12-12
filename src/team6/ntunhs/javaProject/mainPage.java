@@ -45,7 +45,7 @@ public class mainPage {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
+		frame = new JFrame("門診掛號系統--Simple Version");
 		frame.getContentPane().setFont(new Font("新細明體", Font.PLAIN, 18));
 		frame.setBounds(100, 100, 500, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -107,14 +107,25 @@ public class mainPage {
 		frame.getContentPane().add(timeComboBox);
 		
 		JTextArea outputTextArea = new JTextArea();
+		outputTextArea.setFont(new Font("微軟正黑體", Font.BOLD | Font.ITALIC, 20));
+		outputTextArea.setText("尚未完成掛號手續");
 		outputTextArea.setEnabled(false);
-		outputTextArea.setBounds(43, 303, 400, 150);
+		outputTextArea.setBounds(50, 300, 400, 150);
 		frame.getContentPane().add(outputTextArea);
 		
 		JButton confirmButton = new JButton("確定");
 		confirmButton.setFont(new Font("新細明體", Font.PLAIN, 18));
 		confirmButton.setBounds(130, 240, 85, 35);
 		frame.getContentPane().add(confirmButton);
+		confirmButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					outputTextArea.setText("");//先清除輸出文字框
+					outputTextArea.append(nameTextField.getText() + genderComboBox.getSelectedItem()+" 您好!\n");
+					outputTextArea.append("您掛的門診科別為:"+departmentComboBox.getSelectedItem() + "\n");
+					outputTextArea.append("預約的看診時段為:"+timeComboBox.getSelectedItem()+"\n");
+					outputTextArea.append("預約的門診醫師為:"+doctorComboBox.getSelectedItem());
+			}
+		});
 		
 		JButton leaveButton = new JButton("離開");
 		leaveButton.setFont(new Font("新細明體", Font.PLAIN, 18));

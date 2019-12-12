@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 import java.awt.Font;
+import javax.swing.DefaultComboBoxModel;
 
 public class mainPage {
 
@@ -50,7 +51,7 @@ public class mainPage {
 		
 		nameTextField = new JTextField();
 		nameTextField.setFont(new Font("新細明體", Font.PLAIN, 18));
-		nameTextField.setBounds(130, 49, 96, 35);
+		nameTextField.setBounds(130, 49, 100, 35);
 		frame.getContentPane().add(nameTextField);
 		nameTextField.setColumns(10);
 		
@@ -65,8 +66,9 @@ public class mainPage {
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		JComboBox genderComboBox = new JComboBox();
+		genderComboBox.setModel(new DefaultComboBoxModel(new String[] {"先生", "女士"}));
 		genderComboBox.setFont(new Font("新細明體", Font.PLAIN, 18));
-		genderComboBox.setBounds(351, 55, 88, 29);
+		genderComboBox.setBounds(350, 50, 100, 35);
 		frame.getContentPane().add(genderComboBox);
 		
 		JLabel lblNewLabel_2 = new JLabel("科別:");
@@ -75,8 +77,9 @@ public class mainPage {
 		frame.getContentPane().add(lblNewLabel_2);
 		
 		JComboBox departmentComboBox = new JComboBox();
+		departmentComboBox.setModel(new DefaultComboBoxModel(new String[] {"精神科", "內科", "外科", "婦產科"}));
 		departmentComboBox.setFont(new Font("新細明體", Font.PLAIN, 18));
-		departmentComboBox.setBounds(130, 113, 96, 23);
+		departmentComboBox.setBounds(130, 110, 100, 35);
 		frame.getContentPane().add(departmentComboBox);
 		
 		JLabel lblNewLabel_3 = new JLabel("醫師:");
@@ -85,18 +88,20 @@ public class mainPage {
 		frame.getContentPane().add(lblNewLabel_3);
 		
 		JComboBox doctorComboBox = new JComboBox();
+		doctorComboBox.setModel(new DefaultComboBoxModel(new String[] {"杜豐于", "杜美心", "鞏俐芳"}));
 		doctorComboBox.setFont(new Font("新細明體", Font.PLAIN, 18));
-		doctorComboBox.setBounds(351, 112, 88, 25);
+		doctorComboBox.setBounds(350, 110, 100, 35);
 		frame.getContentPane().add(doctorComboBox);
 		
-		JLabel lblNewLabel_4 = new JLabel("門診時段");
+		JLabel lblNewLabel_4 = new JLabel("門診時段:");
 		lblNewLabel_4.setFont(new Font("新細明體", Font.PLAIN, 18));
-		lblNewLabel_4.setBounds(98, 177, 128, 40);
+		lblNewLabel_4.setBounds(130, 180, 130, 40);
 		frame.getContentPane().add(lblNewLabel_4);
 		
 		JComboBox timeComboBox = new JComboBox();
+		timeComboBox.setModel(new DefaultComboBoxModel(new String[] {"星期一早上", "星期一下午", "星期二早上", "星期二下午", "星期三早上", "星期三下午", "星期四早上", "星期四下午", "星期五早上", "星期五下午"}));
 		timeComboBox.setFont(new Font("新細明體", Font.PLAIN, 18));
-		timeComboBox.setBounds(230, 186, 93, 31);
+		timeComboBox.setBounds(250, 180, 150, 35);
 		frame.getContentPane().add(timeComboBox);
 		
 		JTextArea outputTextArea = new JTextArea();

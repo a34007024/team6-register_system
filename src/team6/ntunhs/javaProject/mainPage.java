@@ -12,6 +12,10 @@ import java.awt.Font;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
 
 public class mainPage {
 
@@ -78,12 +82,6 @@ public class mainPage {
 		lblNewLabel_2.setBounds(56, 112, 64, 25);
 		frame.getContentPane().add(lblNewLabel_2);
 		
-		JComboBox<String> departmentComboBox = new JComboBox();
-		departmentComboBox.setModel(new DefaultComboBoxModel(new String[] {"精神科", "內科", "外科", "婦產科"}));
-		departmentComboBox.setFont(new Font("新細明體", Font.PLAIN, 18));
-		departmentComboBox.setBounds(130, 110, 100, 35);
-		frame.getContentPane().add(departmentComboBox);
-		
 		JLabel lblNewLabel_3 = new JLabel("醫師:");
 		lblNewLabel_3.setFont(new Font("新細明體", Font.PLAIN, 18));
 		lblNewLabel_3.setBounds(259, 113, 82, 23);
@@ -100,6 +98,17 @@ public class mainPage {
 		doctorComboBox.setFont(new Font("新細明體", Font.PLAIN, 18));
 		doctorComboBox.setBounds(350, 110, 100, 35);
 		frame.getContentPane().add(doctorComboBox);
+		
+		JComboBox<String> departmentComboBox = new JComboBox();
+		departmentComboBox.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent arg0) {
+				doctorComboBox.setModel(new DefaultComboBoxModel(doc[departmentComboBox.getSelectedIndex()]));
+			}
+		});
+		departmentComboBox.setModel(new DefaultComboBoxModel(new String[] {"精神科", "內科", "外科", "婦產科"}));
+		departmentComboBox.setFont(new Font("新細明體", Font.PLAIN, 18));
+		departmentComboBox.setBounds(130, 110, 100, 35);
+		frame.getContentPane().add(departmentComboBox);
 		
 		JLabel lblNewLabel_4 = new JLabel("門診時段:");
 		lblNewLabel_4.setFont(new Font("新細明體", Font.PLAIN, 18));

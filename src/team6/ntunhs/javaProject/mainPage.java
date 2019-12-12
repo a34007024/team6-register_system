@@ -65,7 +65,7 @@ public class mainPage {
 		lblNewLabel_1.setBounds(259, 49, 82, 35);
 		frame.getContentPane().add(lblNewLabel_1);
 		
-		JComboBox genderComboBox = new JComboBox();
+		JComboBox<String> genderComboBox = new JComboBox();
 		genderComboBox.setModel(new DefaultComboBoxModel(new String[] {"先生", "女士"}));
 		genderComboBox.setFont(new Font("新細明體", Font.PLAIN, 18));
 		genderComboBox.setBounds(350, 50, 100, 35);
@@ -76,7 +76,7 @@ public class mainPage {
 		lblNewLabel_2.setBounds(56, 112, 64, 25);
 		frame.getContentPane().add(lblNewLabel_2);
 		
-		JComboBox departmentComboBox = new JComboBox();
+		JComboBox<String> departmentComboBox = new JComboBox();
 		departmentComboBox.setModel(new DefaultComboBoxModel(new String[] {"精神科", "內科", "外科", "婦產科"}));
 		departmentComboBox.setFont(new Font("新細明體", Font.PLAIN, 18));
 		departmentComboBox.setBounds(130, 110, 100, 35);
@@ -87,7 +87,7 @@ public class mainPage {
 		lblNewLabel_3.setBounds(259, 113, 82, 23);
 		frame.getContentPane().add(lblNewLabel_3);
 		
-		JComboBox doctorComboBox = new JComboBox();
+		JComboBox<String> doctorComboBox = new JComboBox();
 		doctorComboBox.setModel(new DefaultComboBoxModel(new String[] {"杜豐于", "杜美心", "鞏俐芳"}));
 		doctorComboBox.setFont(new Font("新細明體", Font.PLAIN, 18));
 		doctorComboBox.setBounds(350, 110, 100, 35);
@@ -98,7 +98,7 @@ public class mainPage {
 		lblNewLabel_4.setBounds(130, 180, 130, 40);
 		frame.getContentPane().add(lblNewLabel_4);
 		
-		JComboBox timeComboBox = new JComboBox();
+		JComboBox<String> timeComboBox = new JComboBox();
 		timeComboBox.setModel(new DefaultComboBoxModel(new String[] {"星期一早上", "星期一下午", "星期二早上", "星期二下午", "星期三早上", "星期三下午", "星期四早上", "星期四下午", "星期五早上", "星期五下午"}));
 		timeComboBox.setFont(new Font("新細明體", Font.PLAIN, 18));
 		timeComboBox.setBounds(250, 180, 150, 35);
@@ -106,7 +106,17 @@ public class mainPage {
 		
 		JTextArea outputTextArea = new JTextArea();
 		outputTextArea.setEnabled(false);
-		outputTextArea.setBounds(45, 279, 400, 150);
+		outputTextArea.setBounds(43, 303, 400, 150);
 		frame.getContentPane().add(outputTextArea);
+		
+		JButton confirmButton = new JButton("確定");
+		confirmButton.setFont(new Font("新細明體", Font.PLAIN, 18));
+		confirmButton.setBounds(130, 240, 85, 35);
+		frame.getContentPane().add(confirmButton);
+		
+		JButton leaveButton = new JButton("離開");
+		leaveButton.setFont(new Font("新細明體", Font.PLAIN, 18));
+		leaveButton.setBounds(253, 240, 85, 35);
+		frame.getContentPane().add(leaveButton);
 	}
 }

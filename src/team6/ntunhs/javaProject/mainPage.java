@@ -55,7 +55,7 @@ public class mainPage {
 		
 		nameTextField = new JTextField();
 		nameTextField.setFont(new Font("新細明體", Font.PLAIN, 18));
-		nameTextField.setBounds(130, 49, 100, 35);
+		nameTextField.setBounds(100, 49, 130, 35);
 		frame.getContentPane().add(nameTextField);
 		nameTextField.setColumns(10);
 		
@@ -72,7 +72,7 @@ public class mainPage {
 		JComboBox<String> genderComboBox = new JComboBox();
 		genderComboBox.setModel(new DefaultComboBoxModel(new String[] {"先生", "女士"}));
 		genderComboBox.setFont(new Font("新細明體", Font.PLAIN, 18));
-		genderComboBox.setBounds(350, 50, 100, 35);
+		genderComboBox.setBounds(320, 50, 130, 35);
 		frame.getContentPane().add(genderComboBox);
 		
 		JLabel lblNewLabel_2 = new JLabel("科別:");
@@ -86,26 +86,28 @@ public class mainPage {
 		frame.getContentPane().add(lblNewLabel_3);
 		
 		String[] doc[] = new String[4][];//宣告4個字串陣列(二維陣列)
+		//不同科別有不同的醫師
 		doc[0] = new String[] {"杜豐于", "杜美心", "鞏俐芳"};
 		doc[1] = new String[] {"丁丁（Tinky Winky）","迪西（Dipsy）","拉拉（Laa-Laa）","小波（Po）"};
 		doc[2] = new String[] {"綱手", "春野櫻","靜音","藥師兜","野原凜","香燐"};
 		doc[3] = new String[] {"胡椒", "牛排", "大蛇丸"};
 		
 		JComboBox<String> doctorComboBox = new JComboBox();
-		doctorComboBox.setModel(new DefaultComboBoxModel(doc[0]));
+		doctorComboBox.setModel(new DefaultComboBoxModel(doc[0]));//預設顯示精神科門診的醫師清單
 		doctorComboBox.setFont(new Font("新細明體", Font.PLAIN, 18));
-		doctorComboBox.setBounds(350, 110, 100, 35);
+		doctorComboBox.setBounds(320, 110, 130, 35);
 		frame.getContentPane().add(doctorComboBox);
 		
 		JComboBox<String> departmentComboBox = new JComboBox();
 		departmentComboBox.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
 				doctorComboBox.setModel(new DefaultComboBoxModel(doc[departmentComboBox.getSelectedIndex()]));
+				//醫師清單隨著門診科別的下拉選單項目改變(隨著index的質變動)
 			}
 		});
 		departmentComboBox.setModel(new DefaultComboBoxModel(new String[] {"精神科", "內科", "外科", "婦產科"}));
 		departmentComboBox.setFont(new Font("新細明體", Font.PLAIN, 18));
-		departmentComboBox.setBounds(130, 110, 100, 35);
+		departmentComboBox.setBounds(100, 110, 130, 35);
 		frame.getContentPane().add(departmentComboBox);
 		
 		JLabel lblNewLabel_4 = new JLabel("門診時段:");

@@ -117,14 +117,15 @@ public class mainPage {
 		
 		JComboBox<String> timeComboBox = new JComboBox();
 		timeComboBox.setModel(new DefaultComboBoxModel(new String[] {"星期一早上", "星期一下午", "星期二早上", "星期二下午", "星期三早上", "星期三下午", "星期四早上", "星期四下午", "星期五早上", "星期五下午"}));
+		//預設門診時段
 		timeComboBox.setFont(new Font("新細明體", Font.PLAIN, 18));
 		timeComboBox.setBounds(250, 180, 150, 35);
 		frame.getContentPane().add(timeComboBox);
 		
 		JTextArea outputTextArea = new JTextArea();
 		outputTextArea.setFont(new Font("微軟正黑體", Font.BOLD | Font.ITALIC, 20));
-		outputTextArea.setText("尚未完成掛號手續");
-		outputTextArea.setEnabled(false);
+		outputTextArea.setText("尚未完成掛號手續");//預設輸出資訊
+		outputTextArea.setEnabled(false);//讓使用者無法更改輸出資訊欄的文字
 		outputTextArea.setBounds(50, 300, 400, 150);
 		frame.getContentPane().add(outputTextArea);
 		
@@ -132,8 +133,9 @@ public class mainPage {
 		confirmButton.setFont(new Font("新細明體", Font.PLAIN, 18));
 		confirmButton.setBounds(130, 240, 85, 35);
 		frame.getContentPane().add(confirmButton);
-		confirmButton.addActionListener(new ActionListener() {
+		confirmButton.addActionListener(new ActionListener() {//按下掛號按鈕的觸發事件
 			public void actionPerformed(ActionEvent e) {
+					//執行掛號動作，將選單上的各項資訊逐一加至輸出資訊欄
 					outputTextArea.setText("");//先清除輸出文字框
 					outputTextArea.append(nameTextField.getText() + genderComboBox.getSelectedItem()+" 您好!\n");
 					outputTextArea.append("您掛的門診科別為:"+departmentComboBox.getSelectedItem() + "\n");
@@ -146,9 +148,9 @@ public class mainPage {
 		leaveButton.setFont(new Font("新細明體", Font.PLAIN, 18));
 		leaveButton.setBounds(253, 240, 85, 35);
 		frame.getContentPane().add(leaveButton);
-		leaveButton.addActionListener(new ActionListener() {
+		leaveButton.addActionListener(new ActionListener() {//離開按鈕的點擊觸發事件
 			public void actionPerformed(ActionEvent arg0) {
-				System.exit(0);
+				System.exit(0);//離開程式
 			}
 		});
 	}

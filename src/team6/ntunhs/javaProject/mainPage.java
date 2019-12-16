@@ -117,10 +117,52 @@ public class mainPage {
 				String[] time11 = {"星期一早上", "星期五早上", "星期五下午","星期六早上", "星期六下午"};
 				String[] time12 = {"星期一中午", "星期二中午", "星期三中午", "星期四中午","星期五中午","星期六中午"};
 				String[] time13 = {"星期一早上", "星期一下午", "星期二早上", "星期二下午", "星期三早上", "星期三下午", "星期四早上", "星期四下午", "星期五早上", "星期五下午","星期六早上","星期六下午"};
-				String[] time14 = {"星期六中午(蛇丸寶貝的用餐時間)","星期六下午(蛇丸寶貝的睡眠時段)"};
+				String[] time14 = {"星期六中午","星期六下午"};
 				if(doctorComboBox.getItemAt(doctorComboBox.getSelectedIndex()) == "杜美心") {
 					//醫師選單欄.獲取項目在(醫師選單欄.選取項目的索引值) => 會回傳選中項目的字串值
 					timeComboBox.setModel(new DefaultComboBoxModel<String>(time0));
+				}
+				if(doctorComboBox.getItemAt(doctorComboBox.getSelectedIndex()) == "鞏俐芳") {
+					timeComboBox.setModel(new DefaultComboBoxModel<String>(time1));
+				}
+				if(doctorComboBox.getItemAt(doctorComboBox.getSelectedIndex()) == "丁丁（Tinky Winky）") {
+					timeComboBox.setModel(new DefaultComboBoxModel<String>(time2));
+				}
+				if(doctorComboBox.getItemAt(doctorComboBox.getSelectedIndex()) == "迪西（Dipsy）") {
+					timeComboBox.setModel(new DefaultComboBoxModel<String>(time3));
+				}
+				if(doctorComboBox.getItemAt(doctorComboBox.getSelectedIndex()) == "拉拉（Laa-Laa）") {
+					timeComboBox.setModel(new DefaultComboBoxModel<String>(time4));
+				}
+				if(doctorComboBox.getItemAt(doctorComboBox.getSelectedIndex()) == "小波（Po）") {
+					timeComboBox.setModel(new DefaultComboBoxModel<String>(time5));
+				}
+				if(doctorComboBox.getItemAt(doctorComboBox.getSelectedIndex()) == "綱手") {
+					timeComboBox.setModel(new DefaultComboBoxModel<String>(time6));
+				}
+				if(doctorComboBox.getItemAt(doctorComboBox.getSelectedIndex()) == "春野櫻") {
+					timeComboBox.setModel(new DefaultComboBoxModel<String>(time7));
+				}
+				if(doctorComboBox.getItemAt(doctorComboBox.getSelectedIndex()) == "靜音") {
+					timeComboBox.setModel(new DefaultComboBoxModel<String>(time8));
+				}
+				if(doctorComboBox.getItemAt(doctorComboBox.getSelectedIndex()) == "藥師兜") {
+					timeComboBox.setModel(new DefaultComboBoxModel<String>(time9));
+				}
+				if(doctorComboBox.getItemAt(doctorComboBox.getSelectedIndex()) == "野原凜") {
+					timeComboBox.setModel(new DefaultComboBoxModel<String>(time10));
+				}
+				if(doctorComboBox.getItemAt(doctorComboBox.getSelectedIndex()) == "香燐") {
+					timeComboBox.setModel(new DefaultComboBoxModel<String>(time11));
+				}
+				if(doctorComboBox.getItemAt(doctorComboBox.getSelectedIndex()) == "胡椒") {
+					timeComboBox.setModel(new DefaultComboBoxModel<String>(time12));
+				}
+				if(doctorComboBox.getItemAt(doctorComboBox.getSelectedIndex()) == "牛排") {
+					timeComboBox.setModel(new DefaultComboBoxModel<String>(time13));
+				}
+				if(doctorComboBox.getItemAt(doctorComboBox.getSelectedIndex()) == "大蛇丸") {
+					timeComboBox.setModel(new DefaultComboBoxModel<String>(time14));
 				}
 			}
 		});

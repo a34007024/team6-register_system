@@ -85,6 +85,14 @@ public class mainPage {
 		lblNewLabel_3.setBounds(259, 113, 82, 23);
 		frame.getContentPane().add(lblNewLabel_3);
 		
+		
+		JComboBox<String> timeComboBox = new JComboBox();
+		timeComboBox.setModel(new DefaultComboBoxModel(new String[] {"星期一早上", "星期一下午", "星期二早上", "星期二下午", "星期三早上", "星期三下午", "星期四早上", "星期四下午", "星期五早上", "星期五下午"}));
+		//預設門診時段
+		timeComboBox.setFont(new Font("新細明體", Font.PLAIN, 18));
+		timeComboBox.setBounds(250, 180, 150, 35);
+		frame.getContentPane().add(timeComboBox);
+		
 		String[] doc[] = new String[4][];//宣告4個字串陣列(二維陣列)
 		//不同科別有不同的醫師
 		doc[0] = new String[] {"杜豐于", "杜美心", "鞏俐芳"};
@@ -93,6 +101,15 @@ public class mainPage {
 		doc[3] = new String[] {"胡椒", "牛排", "大蛇丸"};
 		
 		JComboBox<String> doctorComboBox = new JComboBox();
+		doctorComboBox.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent arg0) {
+				String[] time0 = {"星期一早上","星期一下午"};
+				if(doctorComboBox.getItemAt(doctorComboBox.getSelectedIndex()) == "杜美心") {
+					//醫師選單欄.獲取項目在(醫師選單欄.選取項目的索引值) => 會回傳選中項目的字串值
+					timeComboBox.setModel(new DefaultComboBoxModel<String>(time0));
+				}
+			}
+		});
 		doctorComboBox.setModel(new DefaultComboBoxModel(doc[0]));//預設顯示精神科門診的醫師清單
 		doctorComboBox.setFont(new Font("新細明體", Font.PLAIN, 18));
 		doctorComboBox.setBounds(320, 110, 130, 35);
@@ -114,13 +131,6 @@ public class mainPage {
 		lblNewLabel_4.setFont(new Font("新細明體", Font.PLAIN, 18));
 		lblNewLabel_4.setBounds(130, 180, 130, 40);
 		frame.getContentPane().add(lblNewLabel_4);
-		
-		JComboBox<String> timeComboBox = new JComboBox();
-		timeComboBox.setModel(new DefaultComboBoxModel(new String[] {"星期一早上", "星期一下午", "星期二早上", "星期二下午", "星期三早上", "星期三下午", "星期四早上", "星期四下午", "星期五早上", "星期五下午"}));
-		//預設門診時段
-		timeComboBox.setFont(new Font("新細明體", Font.PLAIN, 18));
-		timeComboBox.setBounds(250, 180, 150, 35);
-		frame.getContentPane().add(timeComboBox);
 		
 		JTextArea outputTextArea = new JTextArea();
 		outputTextArea.setFont(new Font("微軟正黑體", Font.BOLD | Font.ITALIC, 20));

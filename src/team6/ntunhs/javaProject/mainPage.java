@@ -86,10 +86,25 @@ public class mainPage {
 		frame.getContentPane().add(lblNewLabel_3);
 		
 		String[] defaultTime = {"星期一早上", "星期一下午", "星期二早上", "星期二下午", "星期三早上", "星期三下午", "星期四早上", "星期四下午", "星期五早上", "星期五下午"};
+		//不同醫師的門診時段清單
+		String[] time0 = {"星期一下午","星期二下午", "星期三下午", "星期四下午", "星期五下午"};
+		String[] time1 = {"星期一早上", "星期二早上", "星期三早上",  "星期四早上",  "星期五早上"};
+		String[] time2 = {"星期一早上", "星期一下午", "星期三下午", "星期四早上", "星期四下午", "星期五早上", "星期五下午"};
+		String[] time3 = {"星期三下午", "星期四早上", "星期四下午", "星期五早上", "星期五下午"};
+		String[] time4 = {"星期一早上", "星期五早上", "星期五下午"};
+		String[] time5 = {"星期四早上", "星期四下午", "星期五早上", "星期五下午"};
+		String[] time6 = { "星期二下午", "星期三早上", "星期三下午", "星期四早上"};
+		String[] time7 = {"星期一早上", "星期二早上", "星期三下午", "星期四早上", "星期四下午", "星期五下午"};
+		String[] time8 = {"星期一下午", "星期二早上", "星期二下午", "星期三早上", "星期三下午", "星期四早上", "星期四下午", "星期五早上"};
+		String[] time9 = {"星期一早上", "星期一下午", "星期二早上", "星期二下午", "星期三早上", "星期三下午", "星期四早上", "星期四下午", "星期五早上", "星期五下午"};
+		String[] time10 = {"星期五早上", "星期五下午","星期六早上", "星期六下午"};
+		String[] time11 = {"星期一早上", "星期五早上", "星期五下午","星期六早上", "星期六下午"};
+		String[] time12 = {"星期一中午", "星期二中午", "星期三中午", "星期四中午","星期五中午","星期六中午"};
+		String[] time13 = {"星期一早上", "星期一下午", "星期二早上", "星期二下午", "星期三早上", "星期三下午", "星期四早上", "星期四下午", "星期五早上", "星期五下午","星期六早上","星期六下午"};
+		String[] time14 = {"星期六中午","星期六下午"};
 		
 		JComboBox<String> timeComboBox = new JComboBox();
-		timeComboBox.setModel(new DefaultComboBoxModel(defaultTime));
-		//預設門診時段
+		timeComboBox.setModel(new DefaultComboBoxModel(defaultTime));//預設門診時段
 		timeComboBox.setFont(new Font("新細明體", Font.PLAIN, 18));
 		timeComboBox.setBounds(250, 180, 150, 35);
 		frame.getContentPane().add(timeComboBox);
@@ -104,21 +119,6 @@ public class mainPage {
 		JComboBox<String> doctorComboBox = new JComboBox();
 		doctorComboBox.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
-				String[] time0 = {"星期一下午","星期二下午", "星期三下午", "星期四下午", "星期五下午"};
-				String[] time1 = {"星期一早上", "星期二早上", "星期三早上",  "星期四早上",  "星期五早上"};
-				String[] time2 = {"星期一早上", "星期一下午", "星期三下午", "星期四早上", "星期四下午", "星期五早上", "星期五下午"};
-				String[] time3 = {"星期三下午", "星期四早上", "星期四下午", "星期五早上", "星期五下午"};
-				String[] time4 = {"星期一早上", "星期五早上", "星期五下午"};
-				String[] time5 = {"星期四早上", "星期四下午", "星期五早上", "星期五下午"};
-				String[] time6 = { "星期二下午", "星期三早上", "星期三下午", "星期四早上"};
-				String[] time7 = {"星期一早上", "星期二早上", "星期三下午", "星期四早上", "星期四下午", "星期五下午"};
-				String[] time8 = {"星期一下午", "星期二早上", "星期二下午", "星期三早上", "星期三下午", "星期四早上", "星期四下午", "星期五早上"};
-				String[] time9 = {"星期一早上", "星期一下午", "星期二早上", "星期二下午", "星期三早上", "星期三下午", "星期四早上", "星期四下午", "星期五早上", "星期五下午"};
-				String[] time10 = {"星期五早上", "星期五下午","星期六早上", "星期六下午"};
-				String[] time11 = {"星期一早上", "星期五早上", "星期五下午","星期六早上", "星期六下午"};
-				String[] time12 = {"星期一中午", "星期二中午", "星期三中午", "星期四中午","星期五中午","星期六中午"};
-				String[] time13 = {"星期一早上", "星期一下午", "星期二早上", "星期二下午", "星期三早上", "星期三下午", "星期四早上", "星期四下午", "星期五早上", "星期五下午","星期六早上","星期六下午"};
-				String[] time14 = {"星期六中午","星期六下午"};
 				if(doctorComboBox.getItemAt(doctorComboBox.getSelectedIndex()) == "杜美心") {
 					//醫師選單欄.獲取項目在(醫師選單欄.選取項目的索引值) => 會回傳選中項目的字串值
 					timeComboBox.setModel(new DefaultComboBoxModel<String>(time0));

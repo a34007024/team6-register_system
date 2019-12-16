@@ -85,9 +85,10 @@ public class mainPage {
 		lblNewLabel_3.setBounds(259, 113, 82, 23);
 		frame.getContentPane().add(lblNewLabel_3);
 		
+		String[] defaultTime = {"星期一早上", "星期一下午", "星期二早上", "星期二下午", "星期三早上", "星期三下午", "星期四早上", "星期四下午", "星期五早上", "星期五下午"};
 		
 		JComboBox<String> timeComboBox = new JComboBox();
-		timeComboBox.setModel(new DefaultComboBoxModel(new String[] {"星期一早上", "星期一下午", "星期二早上", "星期二下午", "星期三早上", "星期三下午", "星期四早上", "星期四下午", "星期五早上", "星期五下午"}));
+		timeComboBox.setModel(new DefaultComboBoxModel(defaultTime));
 		//預設門診時段
 		timeComboBox.setFont(new Font("新細明體", Font.PLAIN, 18));
 		timeComboBox.setBounds(250, 180, 150, 35);
@@ -176,6 +177,18 @@ public class mainPage {
 			public void itemStateChanged(ItemEvent arg0) {
 				doctorComboBox.setModel(new DefaultComboBoxModel(doc[departmentComboBox.getSelectedIndex()]));
 				//醫師清單隨著門診科別的下拉選單項目改變(隨著index的質變動)
+				if(departmentComboBox.getSelectedIndex() == 0) {//杜豐于醫師
+					timeComboBox.setModel(new DefaultComboBoxModel<String>(defaultTime));
+				}
+				else if(departmentComboBox.getSelectedIndex() == 1) {//丁丁（Tinky Winky）醫師
+					timeComboBox.setModel(new DefaultComboBoxModel<String>(time2));
+				}
+				else if(departmentComboBox.getSelectedIndex() == 2) {//綱手醫師
+					timeComboBox.setModel(new DefaultComboBoxModel<String>(time6));
+				}
+				else if(departmentComboBox.getSelectedIndex() == 3) {//胡椒醫師
+					timeComboBox.setModel(new DefaultComboBoxModel<String>(time12));
+				}
 			}
 		});
 		departmentComboBox.setModel(new DefaultComboBoxModel(new String[] {"精神科", "內科", "外科", "婦產科"}));

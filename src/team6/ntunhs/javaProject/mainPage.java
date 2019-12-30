@@ -24,7 +24,7 @@ public class mainPage {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
+		EventQueue.invokeLater(new Runnable() {//windowbuilder自動產生
 			public void run() {
 				try {
 					mainPage window = new mainPage();
@@ -117,8 +117,8 @@ public class mainPage {
 		doc[3] = new String[] {"胡椒", "牛排", "大蛇丸"};
 		
 		JComboBox<String> doctorComboBox = new JComboBox();
-		doctorComboBox.addItemListener(new ItemListener() {//醫師下拉選單的觸發事件偵測(被點擊時觸發)
-			public void itemStateChanged(ItemEvent arg0) {//如果選定的項目被更改
+		doctorComboBox.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent arg0) {
 				if(doctorComboBox.getItemAt(doctorComboBox.getSelectedIndex()) == "杜美心") {
 					//醫師選單欄.獲取項目在(醫師選單欄.選取項目的索引值) => 會回傳選中項目的字串值
 					timeComboBox.setModel(new DefaultComboBoxModel<String>(time0));

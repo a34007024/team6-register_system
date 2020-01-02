@@ -1,7 +1,6 @@
 package team6.ntunhs.javaProject;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -13,6 +12,10 @@ import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.awt.event.ItemEvent;
 
 public class mainPage {
@@ -106,7 +109,7 @@ public class mainPage {
 		JComboBox<String> timeComboBox = new JComboBox();
 		timeComboBox.setModel(new DefaultComboBoxModel(defaultTime));//預設門診時段
 		timeComboBox.setFont(new Font("新細明體", Font.PLAIN, 18));
-		timeComboBox.setBounds(250, 180, 150, 35);
+		timeComboBox.setBounds(250, 166, 150, 35);
 		frame.getContentPane().add(timeComboBox);
 		
 		String[] doc[] = new String[4][];//宣告4個字串陣列(二維陣列)
@@ -198,19 +201,19 @@ public class mainPage {
 		
 		JLabel lblNewLabel_4 = new JLabel("門診時段:");
 		lblNewLabel_4.setFont(new Font("新細明體", Font.PLAIN, 18));
-		lblNewLabel_4.setBounds(130, 180, 130, 40);
+		lblNewLabel_4.setBounds(127, 163, 130, 40);
 		frame.getContentPane().add(lblNewLabel_4);
 		
 		JTextArea outputTextArea = new JTextArea();
 		outputTextArea.setFont(new Font("微軟正黑體", Font.BOLD | Font.ITALIC, 20));
 		outputTextArea.setText("尚未完成掛號手續");//預設輸出資訊
 		outputTextArea.setEnabled(false);//讓使用者無法更改輸出資訊欄的文字
-		outputTextArea.setBounds(50, 300, 400, 150);
+		outputTextArea.setBounds(50, 258, 400, 150);
 		frame.getContentPane().add(outputTextArea);
 		
 		JButton confirmButton = new JButton("確定");
 		confirmButton.setFont(new Font("新細明體", Font.PLAIN, 18));
-		confirmButton.setBounds(130, 240, 85, 35);
+		confirmButton.setBounds(137, 213, 85, 35);
 		frame.getContentPane().add(confirmButton);
 		confirmButton.addActionListener(new ActionListener() {//按下掛號按鈕的觸發事件
 			public void actionPerformed(ActionEvent e) {
@@ -225,12 +228,40 @@ public class mainPage {
 		
 		JButton leaveButton = new JButton("離開");
 		leaveButton.setFont(new Font("新細明體", Font.PLAIN, 18));
-		leaveButton.setBounds(253, 240, 85, 35);
+		leaveButton.setBounds(256, 213, 85, 35);
 		frame.getContentPane().add(leaveButton);
 		leaveButton.addActionListener(new ActionListener() {//離開按鈕的點擊觸發事件
 			public void actionPerformed(ActionEvent arg0) {
 				System.exit(0);//離開程式
 			}
 		});
+		
+		JButton exportDataBtn = new JButton("匯出掛號資訊");
+		exportDataBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String filePath = "D:/掛號資訊輸出.txt";
+				File f = new File(filePath);
+				try {
+					if(f.exists()) {
+						BufferedWriter bWriter = new BufferedWriter(new FileWriter(filePath));
+						bWriter.write(outputTextArea.getText());
+						bWriter.close();
+					}
+					else {
+						f.createNewFile();
+						BufferedWriter bWriter = new BufferedWriter(new FileWriter(filePath));
+						bWriter.write(outputTextArea.getText());
+						bWriter.close();
+					}
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+		exportDataBtn.setFont(new Font("新細明體", Font.PLAIN, 18));
+		exportDataBtn.setBounds(170, 418, 150, 35);
+		frame.getContentPane().add(exportDataBtn);
+		
 	}
 }

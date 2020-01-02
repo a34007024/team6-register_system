@@ -259,9 +259,11 @@ public class mainPage {
 						f.createNewFile();
 					}
 					if(outputTextArea.getText().equals("成功匯出掛號資訊!檔案存放在D槽根目錄喔!")) {
+						//進行文字判別需使用.equal()才能順利比對字串是否相同，用==是判別記憶體位址是否相等
 						JOptionPane.showMessageDialog(null, "已經成功匯出掛號資訊囉~!");
 					}
 					else if(outputTextArea.getText().equals("尚未完成掛號手續")) {
+						//進行文字判別需使用.equal()才能順利比對字串是否相同，用==是判別記憶體位址是否相等
 						JOptionPane.showMessageDialog(null, "請先去進行掛號喔!");
 					}
 					else {

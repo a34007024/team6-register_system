@@ -223,11 +223,17 @@ public class mainPage {
 		confirmButton.addActionListener(new ActionListener() {//按下掛號按鈕的觸發事件
 			public void actionPerformed(ActionEvent e) {
 					//執行掛號動作，將選單上的各項資訊逐一加至輸出資訊欄
-					outputTextArea.setText("");//先清除輸出文字框
-					outputTextArea.append(nameTextField.getText() + genderComboBox.getSelectedItem()+" 您好!\n");
-					outputTextArea.append("您掛的門診科別為:"+departmentComboBox.getSelectedItem() + "\n");
-					outputTextArea.append("預約的看診時段為:"+timeComboBox.getSelectedItem()+"\n");
-					outputTextArea.append("預約的門診醫師為:"+doctorComboBox.getSelectedItem());
+					if(nameTextField.getText().equals("")) {
+						//進行文字判別需使用.equal()才能順利比對字串是否相同，用==是判別記憶體位址是否相等
+						JOptionPane.showMessageDialog(null, "請記得填寫您的大名喔!");
+					}
+					else {
+						outputTextArea.setText("");//先清除輸出文字框
+						outputTextArea.append(nameTextField.getText() + genderComboBox.getSelectedItem()+" 您好!\n");
+						outputTextArea.append("您掛的門診科別為:"+departmentComboBox.getSelectedItem() + "\n");
+						outputTextArea.append("預約的看診時段為:"+timeComboBox.getSelectedItem()+"\n");
+						outputTextArea.append("預約的門診醫師為:"+doctorComboBox.getSelectedItem());
+					}
 			}
 		});
 		
@@ -266,6 +272,7 @@ public class mainPage {
 					}
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
+					JOptionPane.showMessageDialog(null, "系統IO錯誤!");
 					e.printStackTrace();
 				}
 			}

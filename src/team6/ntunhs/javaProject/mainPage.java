@@ -1,10 +1,15 @@
 package team6.ntunhs.javaProject;
 
+import java.awt.Component;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+
+import org.omg.CORBA.PUBLIC_MEMBER;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 import java.awt.Font;
@@ -235,23 +240,29 @@ public class mainPage {
 				System.exit(0);//離開程式
 			}
 		});
-		
+		String filePath = "D:/掛號資訊輸出.txt";
 		JButton exportDataBtn = new JButton("匯出掛號資訊");
 		exportDataBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String filePath = "D:/掛號資訊輸出.txt";
 				File f = new File(filePath);
 				try {
 					if(f.exists()) {
-						BufferedWriter bWriter = new BufferedWriter(new FileWriter(filePath));
-						bWriter.write(outputTextArea.getText());
-						bWriter.close();
+						//file Exist do nothing and wait for fileWriting function
 					}
 					else {
 						f.createNewFile();
+					}
+					if(outputTextArea.getText().equals("成功匯出掛號資訊!檔案存放在D槽根目錄喔!")) {
+						JOptionPane.showMessageDialog(null, "已經成功匯出掛號資訊囉~!");
+					}
+					else if(outputTextArea.getText().equals("尚未完成掛號手續")) {
+						JOptionPane.showMessageDialog(null, "請先去進行掛號喔!");
+					}
+					else {
 						BufferedWriter bWriter = new BufferedWriter(new FileWriter(filePath));
 						bWriter.write(outputTextArea.getText());
 						bWriter.close();
+						outputTextArea.setText("成功匯出掛號資訊!檔案存放在D槽根目錄喔!");
 					}
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
@@ -264,4 +275,5 @@ public class mainPage {
 		frame.getContentPane().add(exportDataBtn);
 		
 	}
+	
 }

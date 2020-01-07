@@ -248,18 +248,20 @@ public class mainPage {
 			public void actionPerformed(ActionEvent arg0) {
 				File f = new File(filePath);
 				try {
-					if (f.exists()) {
-						// file Exist do nothing and wait for fileWriting function
-					} else {
-						f.createNewFile();
-					}
 					if (outputTextArea.getText().equals("成功匯出掛號資訊!檔案存放在D槽根目錄喔!")) {
 						// 進行文字判別需使用.equal()才能順利比對字串是否相同，用==是判別記憶體位址是否相等
 						JOptionPane.showMessageDialog(null, "已經成功匯出掛號資訊囉~!");
 					} else if (outputTextArea.getText().equals("尚未完成掛號手續")) {
 						// 進行文字判別需使用.equal()才能順利比對字串是否相同，用==是判別記憶體位址是否相等
 						JOptionPane.showMessageDialog(null, "請先去進行掛號喔!");
-					} else {
+					} else {//上述的防呆判斷先執行完後，再來跑輸出檔案的區塊
+						//前一版本中邏輯錯誤，導致在防呆判斷前就先建立了空白txt檔案 OAO
+						//謝謝建業老師幫忙找Bug ヾ(≧▽≦*)o
+						if (f.exists()) {
+							// file Exist do nothing and wait for fileWriting function
+						} else {
+							f.createNewFile();
+						}
 						BufferedWriter bWriter = new BufferedWriter(new FileWriter(filePath));
 						bWriter.write(outputTextArea.getText());
 						bWriter.close();
